@@ -16,14 +16,21 @@
 	-> Airbrige(에어브릿지)  SDK 로그 출력 작업
   
  5. 크로스 플랫폼 네이티브 플러그인  (추가 내용 필요)
-    - 크로스 플랫폼 설명
+    - 크로스 플랫폼 설명(공용)
   참고-> http://wiki.hash.kr/index.php/%ED%81%AC%EB%A1%9C%EC%8A%A4_%ED%94%8C%EB%9E%AB%ED%8F%BC
+    - 크로스 플랫폼 고려사항(유니티)
+  참고-> https://docs.unity3d.com/kr/2020.3/Manual/CrossPlatformConsiderations.html
+    - 네이티브 플러그인(유니티)
+  참고-> https://docs.unity3d.com/kr/2021.3/Manual/NativePlugins.html
  
  6. 벨리데이션 : 
   실행순서 ->
-    1. 클라이언트에서 Request로 요청사항을 넘긴후 해당 요청사항이 맞는 정보인지 체크
+    1. 클라이언트에서 Request로 요청사항을 넘긴후 해당 요청사항이 맞는 정보인지 체크 (ex : 서버와 연결이 되어있는지, 구매가능한 값인지 등등)
     2. Request 에서 요청사항이 맞다면 벨리데이션으로 값 전달
     3. 벨리데이션이 받은 값을 결과값을 만들수있도록 값을 (결과값 만들고 체크하는 곳)으로 넘겨주고 값체크, 결과값 생성
     4. 결과값 생성이 되었다면 Java 서버로 값 전달
-    5. Java 서버에서 값 체크후 이상이 없다면 클라이언트로 값 전달
+    5. Java 서버에서 값 체크후 이상이 없다면 클라이언트로 받은 값을 재전송 
+    	-(서버와 값이 다르다면 반대값 전달 ex: 로그인 데이터가 없으니 회원가입 하시오, 서버가 연결이 되어있지 않아 구매 불가)
+    ![벨리데이션 설명 사진](https://user-images.githubusercontent.com/98305534/172546917-0beb5980-43ce-46db-94c4-d04ebda2fefc.png)
+
   
